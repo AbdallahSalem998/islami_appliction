@@ -36,7 +36,7 @@ class MyApplication extends StatelessWidget {
       locale: Locale(provider.languageCode),
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,
-      themeMode: ThemeMode.light,
+      themeMode: provider.themeMode,
       initialRoute: HomeScreen.routeName,
       routes: {
         HomeScreen.routeName: (context) => HomeScreen(),

@@ -22,9 +22,7 @@ class _AhadethTabState extends State<AhadethTab> {
             "assets/images/59253-quran-basmala-islamic-kufic-arabic-calligraphy-icon.png"),
         Divider(
           thickness: 2,
-          color: Theme
-              .of(context)
-              .primaryColor,
+          color: Theme.of(context).colorScheme.onBackground,
         ),
         Text(
           AppLocalizations.of(context)!.ahadeth,
@@ -33,9 +31,7 @@ class _AhadethTabState extends State<AhadethTab> {
         ),
         Divider(
           thickness: 2,
-          color: Theme
-              .of(context)
-              .primaryColor,
+          color: Theme.of(context).colorScheme.onBackground,
         ),
         Expanded(
           child: ListView.separated(
@@ -44,9 +40,7 @@ class _AhadethTabState extends State<AhadethTab> {
                   thickness: 1,
                   endIndent: 35,
                   indent: 35,
-                  color: Theme
-                      .of(context)
-                      .primaryColor,
+                  color: Theme.of(context).colorScheme.onBackground,
                 ),
             itemBuilder: (context, index) {
               return InkWell(

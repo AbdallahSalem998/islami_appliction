@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:islame_application/ShowThemeSheetWidget.dart';
 import 'package:islame_application/providers/my_provider.dart';
 import 'package:islame_application/showLanguageSheetWidget.dart';
 import 'package:provider/provider.dart';
@@ -47,17 +48,22 @@ class SettingsTab extends StatelessWidget {
             style: GoogleFonts.elMessiri(
                 fontSize: 16, fontWeight: FontWeight.w500),
           ),
-          Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
-                border: Border.all(color: Theme.of(context).primaryColor)),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "dark",
-                style: GoogleFonts.elMessiri(
-                    fontSize: 22, fontWeight: FontWeight.bold),
+          InkWell(
+            onTap: () {
+              showThemeSheet(context);
+            },
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(color: Theme.of(context).primaryColor)),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  provider.themeMode==ThemeMode.light?"Light":"Dark",
+                  style: GoogleFonts.elMessiri(
+                      fontSize: 22, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           ),
@@ -71,6 +77,15 @@ class SettingsTab extends StatelessWidget {
       context: context,
       builder: (context) {
         return ShowLanguageSheetWidget();
+      },
+    );
+  }
+
+  void showThemeSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return ShowThemeSheetWidget();
       },
     );
   }
